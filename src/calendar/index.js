@@ -247,7 +247,6 @@ class Calendar extends Component {
           addMonth={this.addMonth}
           showIndicator={indicator}
           firstDay={this.props.firstDay}
-          renderArrow={this.props.renderArrow}
           monthFormat={this.props.monthFormat}
           hideDayNames={this.props.hideDayNames}
           weekNumbers={this.props.showWeekNumbers}
@@ -255,6 +254,7 @@ class Calendar extends Component {
           onPressArrowRight={this.props.onPressArrowRight}
         />
         {weeks}
+        {this.props.children}
       </View>);
   }
 }

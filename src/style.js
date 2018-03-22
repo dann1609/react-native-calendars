@@ -15,6 +15,7 @@ export const textSecondaryColor = '#7a92a5';
 
 export const textDayFontFamily = 'System';
 export const textMonthFontFamily = 'System';
+export const textMontFontWeight = 'System';
 export const textDayHeaderFontFamily = 'System';
 
 export const textDayFontSize = 16;
