@@ -27,7 +27,10 @@ class Day extends Component {
   }
 
   onDayPress() {
-    this.props.onPress(this.props.date);
+      this.ref.measure((fx, fy, width, height, px, py) => {
+          this.props.onPress(this.props.date,{fx, fy, width, height, px, py});
+          });
+
   }
 
   shouldComponentUpdate(nextProps) {
@@ -94,6 +97,9 @@ class Day extends Component {
 
     return (
       <TouchableOpacity
+          ref={(ref) => {
+              this.ref = ref
+          }}
         style={containerStyle}
         onPress={this.onDayPress}
         activeOpacity={marking.activeOpacity}

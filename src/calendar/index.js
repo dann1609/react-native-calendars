@@ -121,7 +121,7 @@ class Calendar extends Component {
     });
   }
 
-  pressDay(date) {
+  pressDay(date, coords) {
     const day = parseDate(date);
     const minDate = parseDate(this.props.minDate);
     const maxDate = parseDate(this.props.maxDate);
@@ -131,7 +131,7 @@ class Calendar extends Component {
         this.updateMonth(day);
       }
       if (this.props.onDayPress) {
-        this.props.onDayPress(xdateToData(day));
+        this.props.onDayPress(xdateToData(day),coords);
       }
     }
   }
