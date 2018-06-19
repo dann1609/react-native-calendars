@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {
-  TouchableOpacity,
-  Text,
-  View
+    TouchableOpacity,
+    Text,
+    View, Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -49,7 +49,8 @@ class Day extends Component {
           this.props.marking.marked === nextProps.marking.marked
           && this.props.marking.selected === nextProps.marking.selected
           && this.props.marking.dotColor === nextProps.marking.dotColor
-          && this.props.marking.disabled === nextProps.marking.disabled));
+          && this.props.marking.disabled === nextProps.marking.disabled
+        && !this.props.marking.src === nextProps.marking.src));
       } else {
         markingChanged = true;
       }
@@ -106,8 +107,19 @@ class Day extends Component {
         activeOpacity={marking.activeOpacity}
         disabled={marking.disableTouchEvent}
       >
-        <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
-        {dot}
+          {
+              this.props.marking.src &&
+                  <Image
+                      style={containerStyle}
+                      source={this.props.marking.src}
+                  />
+          }
+          {
+              !this.props.marking.src &&
+              <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
+          }
+          {!this.props.marking.src && dot}
+
       </TouchableOpacity>
     );
   }
